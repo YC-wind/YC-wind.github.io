@@ -69,8 +69,8 @@ ga_domain: auto
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: ee1c86b8f25840c8fe4b   #生成的clientID
-  clientSecret: 474e8c1b4f3b788c751852e0d5b7d8441aa8de51  #同上
+  clientID: fe40626b0b34324bac86   #生成的clientID
+  clientSecret: 3f92dffbf42e8d86f84506d3788b4211cb03903f  #同上
   repo: YC-wind.github.io    #仓库名称
   owner: YC-wind    #github用户名
   admin: YC-wind
