@@ -4,7 +4,7 @@ SEOTitle: ML study Blog
 header-img: img/post-bg-desk.jpg
 email: 990800269@qq.com
 description: "Share my reading notes with everyone."
-keyword: "WZH, Cong Yu Blog, image recognition, deep learning, mechine learning"
+keyword: "WZH, Cong Yu Blog, NLP, deep learning, machine learning"
 url: "http://YC-wind.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/YC-wind/YC-wind.github.io.git" # you code repository
