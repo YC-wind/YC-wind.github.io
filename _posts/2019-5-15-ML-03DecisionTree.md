@@ -36,7 +36,8 @@ tags:
 
 $$Ent(D) = -\sum_{k=1}^{|\mathcal{Y}|}p_klog_2p_k$$
 
-其中, \
+其中, 
+
 $$|\mathcal{Y}|$$ 
 
 为类别集合， $$p_k$$ 为该类样本占样本总数的比例。
