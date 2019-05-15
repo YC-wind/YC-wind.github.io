@@ -35,9 +35,9 @@ tags:
 熵（entropy）：
 熵指的是体系的混乱的程度，在不同的学科中也有引申出的更为具体的定义，是各领域十分重要的参量。
 
-$$Ent(D) = -\sum_{k=1}^{|\mathcal{Y}|}p_klog_2p_k$$
+\\(Ent(D) = -\sum_{k=1}^{|\mathcal{Y}|}p_klog_2p_k\\)
 
-其中 $|\mathcal{Y}|$ 为类别集合，$p_k$ 为该类样本占样本总数的比例。
+其中 \\(|\mathcal{Y}|$ 为类别集合，\\(p_k$ 为该类样本占样本总数的比例。
 
 信息论（information theory）中的熵（香农熵）：
 是一种信息的度量方式，表示信息的混乱程度，也就是说：信息越有序，信息熵越低。例如：火柴有序放在火柴盒里，熵值很低，相反，熵值很高。
@@ -45,32 +45,32 @@ $$Ent(D) = -\sum_{k=1}^{|\mathcal{Y}|}p_klog_2p_k$$
 信息增益（information gain）：
 在划分数据集前后信息发生的变化称为信息增益。
 
-$$Gain(D,a) = Ent(D) - \sum_{v=1}^{V}\frac{|D^v|}{|D|}Ent(D^v)$$
+\\(Gain(D,a) = Ent(D) - \sum_{v=1}^{V}\frac{|D^v|}{|D|}Ent(D^v)\\)
 
 增益率（gain ratio）是C4.5算法采用的选择准则，定义如下：
 
-$$Gain_ratio(D,a) = \frac{Gain(D,a)}{IV(a)}$$
+\\(Gain_ratio(D,a) = \frac{Gain(D,a)}{IV(a)}\\)
 
 其中，
 
-$$IV(a) = -\sum_{v=1}^V\frac{|D^v|}{|D|}log_2\frac{|D^v|}{|D|}$$
+\\(IV(a) = -\sum_{v=1}^V\frac{|D^v|}{|D|}log_2\frac{|D^v|}{|D|}\\)
 
 基尼指数
 基尼指数（Gini index）是CART算法采用的选择准则，定义如下：
 
 基尼值：
 
-$$Gini(D) = \sum_{k=1}^{|\mathcal{Y}|}\sum_{k' \neq k}p_kp_{k'}\ =1-\sum_{k=1}^{|\mathcal{Y}|}p_k^2$$
+\\(Gini(D) = \sum_{k=1}^{|\mathcal{Y}|}\sum_{k' \neq k}p_kp_{k'}\ =1-\sum_{k=1}^{|\mathcal{Y}|}p_k^2\\)
 
 基尼指数：
 
-$$Gini_index(D,a) = \sum_{v=1}^{V}\frac{|D^v|}{|D|}Gini(D^v)$$
+\\(Gini_index(D,a) = \sum_{v=1}^{V}\frac{|D^v|}{|D|}Gini(D^v)\\)
 
 基尼值是另一种衡量样本集纯度的指标。反映的是从一个数据集中随机抽取两个样本，其类别标志不同的概率。
 
 基尼值越小，样本集的纯度越高。
 
-由基尼值引伸开来的就是基尼指数这种准则了，基尼指数越小，表示使用属性 $a$ 划分后纯度的提升越大。
+由基尼值引伸开来的就是基尼指数这种准则了，基尼指数越小，表示使用属性 \\(a\\) 划分后纯度的提升越大。
 
 ### 决策树 开发流程
 
