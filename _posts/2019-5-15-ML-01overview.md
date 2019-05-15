@@ -1,6 +1,6 @@
 ---
 layout:     post
-title: （转）机器学习概述
+title: （转）机器学习-概述
 subtitle: 机器学习系列之 概述
 date:       2019-5-15
 author:     Cong Yu
