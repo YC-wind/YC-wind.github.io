@@ -16,6 +16,8 @@ tags:
 <details><summary> python 代码 ckpt2pb </summary>
 输入 ckpt 路径、保存pb文件路径
 
+</details>
+
 ```python
 import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -72,8 +74,6 @@ def freeze_graph(model_folder, output_graph="frozen_model.pb"):
         print("[INFO] all done")
 ```
 
-</details>
-
 ## tensorflow 加载 pb 文件
 
 <details><summary> python 代码 ckpt2pb </summary>
@@ -82,6 +82,9 @@ def freeze_graph(model_folder, output_graph="frozen_model.pb"):
 但同时加载多个模型是，要 指定图
 tf.Graph().as_default() as graph\
 sess = tf.Session(graph=graph)
+
+</details>
+
 ```python
 import tensorflow as tf
 model_path = ""
@@ -95,6 +98,4 @@ with tf.Graph().as_default() as graph:
     # is_training = sess.graph.get_tensor_by_name("placeholder/Placeholder:0")  # is_training
     p = sess.graph.get_tensor_by_name("output/logits:0")
 ```
-
-</details>
 
