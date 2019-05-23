@@ -77,7 +77,7 @@ $$g_R(D,A)=\frac{g(D, A)}{H_A(D)}$$
 
 其中，
 
-$$H_A(D)=-\sum_{i}^{n}\frac{|D_i|}{|D|}*log_2(\frac{|D_i|}{{|D|}})$$
+$$H_A(D)=-\sum_{i}^{n}\frac{|D_i|}{|D|}*log_2(\frac{|D_i|}{|D|})$$
 
  基尼指数
  
