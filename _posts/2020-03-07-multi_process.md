@@ -71,7 +71,7 @@ class PredictServer:
     def __init__(self):
         self.version = {}
 
-    def func(self, conn):  # conn管道类型
+    def func(self, conn):
         os.environ['CUDA_VISIBLE_DEVICES'] = '0'
         import tensorflow as tf
         has_model = False
@@ -94,9 +94,7 @@ class PredictServer:
             except Exception as e:
                 print(repr(e))
                 res = "sorry, error"
-            # print(res)
-            conn.send(res)  # 发送的数据
-            # flag = flag_ and self.robot_version.get(key, None) is not None and self.robot_version[key][3]
+            conn.send(res)
             print(f"子进程：{os.getpid()} ，接受数据：{temp}，返回：{res}")
 
     def predict_batch(self, text_as, text_bs):
@@ -106,7 +104,6 @@ class PredictServer:
         }
         key = "relation_model"
         json_data_string = json.dumps(json_data)
-        # 检测，所有死掉的进程，全部下线
         pops = []
         for k, v in self.version.items():
             if not v[2].is_alive():
@@ -123,7 +120,7 @@ class PredictServer:
             return a
         else:
             print(f"init model {key}")
-            conn_a, conn_b = multiprocessing.Pipe()  # 创建一个管道，两个口
+            conn_a, conn_b = multiprocessing.Pipe()
             print("ok1")
             p = multiprocessing.Process(target=self.func, args=(conn_a,))
             p.daemon = True
@@ -152,7 +149,7 @@ class PredictServer:
     def __init__(self):
         self.version = {}
 
-    def func(self, conn, version):  # conn管道类型
+    def func(self, conn, version):
         os.environ['CUDA_VISIBLE_DEVICES'] = '0'
         import tensorflow as tf
         has_model = False
@@ -175,13 +172,11 @@ class PredictServer:
                     else:
                         res = "not found model"
                 else:
-                    # 目前设置更新模型时，把之前的模型关闭掉
                     res = "sorry, not match"
             except Exception as e:
                 print(repr(e))
                 res = "sorry, error"
-            # print(res)
-            conn.send(res)  # 发送的数据
+            conn.send(res)
             flag = flag_ and self.version.get(key, None) is not None and self.version[key][3]
             print(f"进程状态：{flag}，子进程：{os.getpid()} ，接受数据：{temp}，返回：{res}")
 
@@ -192,7 +187,6 @@ class PredictServer:
         }
         json_data_string = json.dumps(json_data)
         key = f"{version}"
-        # 检测，所有死掉的进程，全部下线
         pops = []
         for k, v in self.version.items():
             if not v[2].is_alive():
@@ -216,8 +210,6 @@ class PredictServer:
             self.version[key] = [conn_a, conn_b, p, True]
             p.start()
             self.version[key] = [conn_a, conn_b, p, True]
-
-            # 其他版本 下线
             pops = []
             for k, v in self.version.items():
                 if key != k:
@@ -264,6 +256,13 @@ for k,v in p_model.version.items():
 for k,v in p_model.version.items():
     print(k, v[2].is_alive())
 ```
+* * *
+
+多进程遇到的坑：
+
+1、gpu检测不到；（需要导入 tf，指定 显卡）
+
+2、要么都用多进程，和程序启动的模型预测回存在卡死情况（原因还没找到）
 
 * * *
 
