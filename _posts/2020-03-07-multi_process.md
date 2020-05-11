@@ -256,6 +256,23 @@ for k,v in p_model.version.items():
 for k,v in p_model.version.items():
     print(k, v[2].is_alive())
 ```
+
+
+bug解决
+```python
+# 此处代码最好放在接受，发送之后进行，避免进程卡死
+pops = []
+for k, v in self.version.items():
+    if key != k:
+        v[2].terminate()
+        print("stop process")
+        v[2].join()
+        pops.append(k)
+
+[self.version.pop(_) for _ in pops]
+
+```
+
 * * *
 
 多进程遇到的坑：
@@ -264,8 +281,12 @@ for k,v in p_model.version.items():
 
 2、要么都用多进程，和程序启动的模型预测回存在卡死情况（原因还没找到）
 
+3、多进程卡死，**如果管道中没有数据了，接收端还去接收的话，会卡死。没有任何反应和提示，就卡住**
+
 * * *
 
 ## Reference
 
 * **参考1：[Python3多进程multiprocess学习](https://blog.csdn.net/qhd1994/article/details/79864087)**
+
+* **参考2：[Python3多进程管道卡死错误](https://blog.csdn.net/qxqxqzzz/article/details/104384920)**
