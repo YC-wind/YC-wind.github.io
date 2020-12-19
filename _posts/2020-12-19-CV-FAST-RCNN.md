@@ -37,7 +37,7 @@ RCNN检测慢主要体现为：
 ![图]({{ site.baseurl }}/post_images/FAST-RCNN/FAST-RCNN-img.png)
 
 
-![图]({{ site.baseurl }}/post_images/FAST-RCNN/FAST-RCNN-img3.gif)
+![Alt Text]({{ site.baseurl }}/post_images/FAST-RCNN/FAST-RCNN-img3.gif)
 
 ## Reference
 1. [FAST-RCNN-paper](https://arxiv.org/abs/1504.08083)
