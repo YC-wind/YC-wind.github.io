@@ -24,7 +24,7 @@ Faster RCNN其实可以分为4个主要内容：
 
 - _**Region Proposal Networks**_。RPN网络用于生成region proposals。该层通过softmax判断anchors属于positive或者negative，再利用bounding box regression修正anchors获得精确的proposals。
 
-![img.png]({{ site.baseurl }}/post_images/FASTer-RCNN/FASTer-RCNN-img0.png)
+![img.png]({{ site.baseurl }}/post_images/FASTer-RCNN/FASTer-RCNN-img1.png)
 
 - **Roi Pooling**。该层收集输入的feature maps和proposals，综合这些信息后提取proposal feature maps，送入后续全连接层判定目标类别。
 
